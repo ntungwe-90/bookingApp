@@ -1,0 +1,10 @@
+<ul>
+<% if (typeof navigations != 'undefined'){ %> <% navigation.forEach(nav => { %>
+<li>
+    <a href="<%=nav.path  %> "><%= nav.name %> </a>
+    <p><%= nav.description %></p>
+</li>
+    <% }) %> <% } %> 
+   
+</ul>    
+    

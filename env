@@ -1,0 +1,4 @@
+PORT=6001
+CONNECTION_STRING=mongodb://localhost:27017//bookingApp
+SECRET=[thinkbeforactingalwas]
+MODE_ENV=development

@@ -1,0 +1,48 @@
+<section style="background-image: url('img/makeup.jpg') ">
+
+<div class="container">
+<h1>our bookings</h1>
+
+<% bookings.forEach((booking) =>{ %>
+    <%- booking.name -%>
+    <%- booking.phone -%>
+    <%- booking.email -%>
+   
+    
+
+<%})%> 
+
+<ul>
+    <li ><a style="color:blue;" href="/bookings/add">Add</a></li>
+    <!-- <li ><a style="color:blue;" href="/bookings/edit/id">edit</a></li> -->
+    <li ><a style="color:red;" href="/bookings/delete">Delete</a></li>
+</ul>
+
+</div>
+</section>
+
+<style>
+  .container{
+      margin-top: -300px;
+      text-align: center;
+      font-size: 25px;
+      color: #fff;
+  } 
+
+   a{
+      text-align: center;
+  }
+  section {
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+    /* background-attachment:fixed; */
+    /* padding: 3.5rem  ; */
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+    
+    
+</style>
