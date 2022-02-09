@@ -15,9 +15,7 @@ const schema = new mongoose.Schema({
 type:Date
   },
   
-  slot: {
-    type: { type: mongoose.Types.ObjectId, ref: "Slot" },
-  },
+ 
 });
 
-module.exports = mongoose.model("failedBookings", schema);
+module.exports = mongoose.model("failedBooking", schema);

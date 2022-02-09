@@ -9,7 +9,10 @@ exports.index = async(req, res) => {
 };
 
 exports.add = async(req, res) =>{
-    await res.render('slots/add')
+     res.render('slots/add',
+    {
+     csrfToken: req.csrfToken(),
+    });
 };
 
 exports.save = async(req, res) =>{

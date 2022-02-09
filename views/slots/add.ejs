@@ -3,6 +3,7 @@
     <h1>add slots </h1>
     <form method="post">
         <div>
+          <input type="hidden" name="_csrf" value="<%= csrfToken %>"><br>
         <label for="">Date</label>
             <input type="date" name="slot_date" placeholder="Date"> <br><br>
         </div>

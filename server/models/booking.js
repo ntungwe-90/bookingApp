@@ -11,12 +11,15 @@ const schema = new mongoose.Schema({
   email: {
     type: String,
   },
+services: {
+  type:String,
+},
   booking_date:{
 type:Date
   },
   
   slot: {
-    type: { type: mongoose.Types.ObjectId, ref: "Slot" },
+      type: mongoose.Types.ObjectId, ref: "Slot" 
   },
 });
 

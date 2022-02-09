@@ -1,0 +1,44 @@
+<section style="background-image: url('img/makeup.jpg') ">
+
+    <div class="container">
+    <h1>failed bookings</h1>
+    
+    <% bookings.forEach((booking) =>{ %>
+        <%- booking.name -%>
+        <%- booking.phone -%>
+        <%- booking.email -%>
+       
+        
+    
+    <%})%> 
+    
+
+    
+    </div>
+    </section>
+    
+    <style>
+      .container{
+          margin-top: -300px;
+          text-align: center;
+          font-size: 25px;
+          color: #fff;
+      } 
+    
+       a{
+          text-align: center;
+      }
+      section {
+        background-repeat: no-repeat;
+        background-position: center center;
+        background-size: cover;
+        /* background-attachment:fixed; */
+        /* padding: 3.5rem  ; */
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+      }
+        
+        
+    </style>

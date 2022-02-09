@@ -1,0 +1,141 @@
+<!-- <section style="background-image: url('img/makeup.jpg') "> -->
+    <div class="fcontainer">
+
+        <h1>All Failed Bookings</h1>
+        <form method="post">
+            <div>
+                <label for="name">Name</label>
+                <input type="text" name="name" placeholder="Enter Name"> <br><br>
+            </div>
+            <div>
+                <label for="phone-numberInput">Phone</label>
+                <input type="number" name="phone" placeholder="Phone Number"><br><br>
+            </div>
+            <div>
+                <label for="email">Email</label>
+                <input type="text" name="email" placeholder="Your Email"><br><br>
+            </div>
+            <div>
+                <label for="date">Date</label>
+                <input type="date" name="booking_date" placeholder="Date"><br><br>
+            </div>
+            <div>
+                <label for="options">Available beauty treatments</label>
+                <select for="options"name="services" required>
+                    <option value="">select from our options</option>
+                    <option value="massage">Massage</option>
+                    <option value="haircut">Haircut</option>
+                    <option value="manicure">Manicure</option>
+                    <option value="pendicure">pendicure</option>
+                    <option value="classes">Classes</option>
+                </select>
+            </div>
+    
+    
+            <button class="button3" type="Submit">Add</button>
+        </form>
+    </div>
+    <!-- </section> -->
+    <style>
+       body{
+         background-image: url("/img/massage.jpg");
+         background-repeat: no-repeat;
+        background-position: center center;
+        background-size: cover;
+        /* background-attachment:fixed; */
+        /* padding: 3.5rem  ; */
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+       }
+    
+    .fcontainer{
+       /* background-color: rgb(4, 47, 65); */
+       /* background-color: #0e1e2c; */
+      box-shadow: 2px 3px 2px 3px rgb(15, 54, 54);
+      border: 3px solid #691818;
+      padding: 2em;
+      width: 500px;
+      min-height: 50vh;
+      border-radius: 3px;
+     margin: 50px;
+      margin: auto;
+      margin-top: 5em;
+      margin-bottom: 3em;
+      color: #691818;
+      /* color: rgb(15, 54, 54); */
+      }
+    
+      .fcontainer h1{
+          text-align: center;
+          color: rgb(58, 4, 4);
+      }
+    
+      .fcontainer .layout{
+      border-radius: 8px;
+      margin: auto;
+      color: #fff;
+     
+    }
+    .layout p{
+      text-align: center;
+    }
+    .fcontainer input{
+      width: 90%;
+     padding: 0.8rem;
+     border: 2px solid #691818;
+     /* color: white; */
+     margin: 0.6em;
+     border-radius: 5px;
+     /* border: none; */
+     
+    
+    }
+    .fcontainer input:focus{
+      outline: none;
+    }
+    
+    textarea{
+      width: 90%;
+      min-height: 30vh;
+     padding: 0.8rem;
+     /* outline: none; */
+     /* color: white; */
+     margin: 0.6em;
+     border-radius:  5px;
+     border: 2px solid rgb(99, 13, 13);
+     /* border: none; */
+     
+    
+    }
+    .button3{
+      border: none;
+      background-color: rgb(58, 4, 4);
+      text-align: center;
+      padding: 0.8em;
+      margin: 1em;
+      
+      /* margin-bottom: 2em; */
+      border-radius: 7px; 
+      color: #fff; 
+      width: 100px;
+      margin-left: 13em; 
+    }
+    
+    section {
+        background-repeat: no-repeat;
+        background-position: center center;
+        background-size: cover;
+        /* background-attachment:fixed; */
+        /* padding: 3.5rem  ; */
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+      }
+    </style>
+    
+    
+        
+    
