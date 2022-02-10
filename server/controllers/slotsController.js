@@ -11,7 +11,7 @@ exports.index = async(req, res) => {
 exports.add = async(req, res) =>{
      res.render('slots/add',
     {
-     csrfToken: req.csrfToken(),
+    //  csrfToken: req.csrfToken(),
     });
 };
 

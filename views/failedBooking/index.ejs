@@ -1,12 +1,13 @@
-<section style="background-image: url('img/makeup.jpg') ">
+<section >
 
     <div class="container">
-    <h1>failed bookings</h1>
+    <h1>All failed bookings</h1>
     
-    <% bookings.forEach((booking) =>{ %>
-        <%- booking.name -%>
-        <%- booking.phone -%>
-        <%- booking.email -%>
+    <% failedBookings.forEach((failedBooking) =>{ %>
+        <%- failedBooking.name -%>
+        <%- failedBooking.phone -%>
+        <%- failedBooking.email -%>
+        
        
         
     
@@ -19,7 +20,7 @@
     
     <style>
       .container{
-          margin-top: -300px;
+          margin-top: -350px;
           text-align: center;
           font-size: 25px;
           color: #fff;

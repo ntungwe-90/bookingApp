@@ -14,7 +14,9 @@ const schema = new mongoose.Schema({
   booking_date:{
 type:Date
   },
-  
+  services:{
+    type:String
+  }
  
 });
 

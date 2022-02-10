@@ -1,11 +1,10 @@
 const express = require("express");
-const PORT = process.env.PORT || 6001;
 require('dotenv').config()
-const csrf = require('csurf')
+// const csrf = require('csurf')
 const expressLayouts = require("express-ejs-layouts");
 
-const session = require('express-session')
-const cookieParser = require('cookie-parser')
+// const session = require('express-session')
+// const cookieParser = require('cookie-parser')
 
 const app = express();
 
@@ -16,10 +15,10 @@ app.use(express.urlencoded({ extended: true }));
 app.set("layout", "./layouts/main");
 app.set("view engine", "ejs");
  
-app.use(cookieParser())
+// app.use(cookieParser())
 
-const csrfProtection = csrf({cookie:true})
-app.use(csrfProtection)
+// const csrfProtection = csrf({cookie:true})
+// app.use(csrfProtection)
 // app.use(session({
 //     secret:process.env.SECRETE,
 //     reserve:false,
@@ -27,11 +26,6 @@ app.use(csrfProtection)
 //     cookie:{secure:true}
 // })
 // )
-
-
-
-
-
 
 const route = require("./server/routes/pagesRoute");
 app.use("/", route);
@@ -45,5 +39,7 @@ app.use("/slots", slotRoute);
 const failedBooking = require("./server/routes/bookingRoutes");
 app.use("/failedBookings", failedBooking);
 
+
+const PORT = process.env.PORT || 6001;
 app.listen(PORT, () => console.log(`server running`));
 
