@@ -1,7 +1,7 @@
 const express = require("express");
 require('dotenv').config()
 
-const local
+
 // const csrf = require('csurf')
 const expressLayouts = require("express-ejs-layouts");
 
@@ -37,6 +37,10 @@ app.use("/bookings", bookingRoute);
 
 const slotRoute = require("./server/routes/slotRoutes");
 app.use("/slots", slotRoute);
+
+
+const loginRoute = require("./server/routes/loginRoutes");
+app.use("/", loginRoute)
 
 // const failedBooking = require("./server/routes/failedBookingRoutes");
 // app.use("/failedBookings", failedBooking);

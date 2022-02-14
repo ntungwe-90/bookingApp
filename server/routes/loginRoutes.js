@@ -1,6 +1,7 @@
-const passport = require("passport")
-const router = require = require("express").Router();
-const localStrategy = require("passport-local")
+const router =  require("express").Router();
+const passport = require("passport");
+const localStrategy = require("passport-local");
+const controller = require("../controllers/loginController")
 
 
 passport.use(
@@ -20,3 +21,9 @@ passport.serializeUser(function (user, cb) {
 passport.deserializeUser(function (user, cb) {
     return cb(null, user);
 });
+
+router.get('/login', controller.login)
+router.post('/login', controller.authlogin)
+
+
+module.exports = router
