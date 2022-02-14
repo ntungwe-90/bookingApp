@@ -1,7 +1,8 @@
 require("../models/mongooseConnection");
 const Booking = require("../models/Booking");
 const Slot = require("../models/Slot");
-const FailedBooking = require("../models/FailedBooking")
+const FailedBooking = require("../models/FailedBooking");
+const failedBooking = require("../models/FailedBooking");
 
 // booking routes
 exports.index = async (req, res) => {
@@ -53,6 +54,19 @@ exports.save = async (req, res) => {
     booking_date:req.body.booking_date
    })
 
+   if (slots !==null) {
+     if (slots.quantity > 0){
+       const booking = new Booking ({
+        name:req.body.name,
+        phone:req.body.phone,
+        email:req.body.email,
+        services:req.body.services,
+        booking_date:req.body.booking_date
+       })
+       await booking.save()
+     }
+   }
+
    var decrement = slots.quantity -1
    await Slot.updateOne({_id:slots._id})
    res.render('bookings/index')
@@ -60,7 +74,7 @@ exports.save = async (req, res) => {
    
     // console.log("booking date availabe");
   } else {
-    
+    await failedBooking.save()
     // console.log("booking is not available");
 
     

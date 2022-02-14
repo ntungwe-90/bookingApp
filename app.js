@@ -36,8 +36,8 @@ app.use("/bookings", bookingRoute);
 const slotRoute = require("./server/routes/slotRoutes");
 app.use("/slots", slotRoute);
 
-const failedBooking = require("./server/routes/bookingRoutes");
-app.use("/failedBookings", failedBooking);
+// const failedBooking = require("./server/routes/failedBookingRoutes");
+// app.use("/failedBookings", failedBooking);
 
 
 const PORT = process.env.PORT || 6001;

@@ -10,3 +10,4 @@ router.post('/add', controller.save)
 // router.get('/edit/:failedBooking_id', controller.edit)
 // router.post('/edit/:failedBooking_id', controller.update)
 // router.get('/delete', controller.delete)
+module.exports = router

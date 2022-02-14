@@ -2,8 +2,9 @@
 
 <div class="container">
 <h1>our bookings</h1>
-
+<div class="maincard">
 <% bookings.forEach((booking) =>{ %>
+  <div class="card">
     <%- booking.name -%>
     <%- booking.phone -%>
     <%- booking.email -%>
@@ -13,13 +14,14 @@
     
 
 <%})%> 
-
+</div>
 <ul>
     <li ><a style="color:blue;" href="/bookings/add">Add Booking</a></li>
     <!-- <li ><a style="color:blue;" href="/bookings/edit/id">edit</a></li> -->
     <li ><a style="color:red;" href="/bookings/delete">Delete Booking</a></li>
 </ul>
 
+</div>
 </div>
 </section>
 
@@ -45,6 +47,35 @@
     flex-direction: column;
     justify-content: center;
   }
+
+  .card {
+       
+        /* background-color:rgb(29, 208, 231) ; */
+        /* background-color: rgb(128, 128, 128); */
+        /* height: 100px;
+        width: 200px; */
+        text-align: center;
+        border-radius: 5px;
+        color: #fff;
+
+        /* margin-left: 5rem;     */
+
+
+    }
+
+    /* .card:hover {
+        background-color: lightgray;
+
+    } */
+
+    .maincard {
+        display: grid;
+        grid-template-columns: 1fr  1fr 1fr;
+        /* grid-template-columns: repeat(auto-fit, minmax(300px, 300px)); */
+        grid-gap: 25px;
+        /* margin-left:2rem ; */
+        padding-left: 2rem;
+    }
     
     
 </style>
