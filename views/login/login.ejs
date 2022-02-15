@@ -1,14 +1,6 @@
-<!-- <form method="post" action="">
-    <div>
-        <label>name</label>
-        <input type="text" name="name"><br><br>
-
-        <label>password</label>
-        <input type="text" name="password">
-    </div>
-</form> -->
+<div class="loginContainer">
 <form action="" style="max-width:500px;margin:auto" method="post" >
-  <h2>Register Form</h2>
+  <h2>LOGIN FORM</h2>
   <div class="input-container">
     <i class="fa fa-user icon"></i>
     <input class="input-field" type="text" placeholder="Username" name="username">
@@ -26,20 +18,53 @@
 
   <button type="submit" class="btn">Register</button>
 </form>
+</div>
 <style>
-    body {font-family: Arial, Helvetica, sans-serif;}
-    * {box-sizing: border-box;}
+    body 
+    {
+      font-family: Arial, Helvetica, sans-serif;
+      background-image: url("/img/dryer.jpg");
+         background-repeat: no-repeat;
+        background-position: center center;
+        background-size: cover;
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+
+
+
+    .loginContainer{
+      box-shadow: 2px 3px 2px 3px rgb(15, 54, 54);
+      border: 3px solid #691818;
+      padding: 2em;
+      width: 500px;
+      min-height: 50vh;
+      border-radius: 3px;
+     margin: 50px;
+      margin: auto;
+      margin-top: 7em;
+      margin-bottom: 12em;
+
+    }
+
+    .loginContainer h2{
+      text-align: center;
+      color: #fff;
+  }
     
     .input-container {
-      display: -ms-flexbox; /* IE10 */
+      display: -ms-flexbox; 
       display: flex;
       width: 100%;
       margin-bottom: 15px;
+      border: 5px solid #fff;
     }
     
     .icon {
       padding: 10px;
-      background: dodgerblue;
+      background:#691818 ;
       color: white;
       min-width: 50px;
       text-align: center;
@@ -52,12 +77,12 @@
     }
     
     .input-field:focus {
-      border: 2px solid dodgerblue;
+      border: 2px solid #691818;
     }
     
     /* Set a style for the submit button */
     .btn {
-      background-color: dodgerblue;
+      background-color: #691818;
       color: white;
       padding: 15px 20px;
       border: none;
