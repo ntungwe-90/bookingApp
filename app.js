@@ -23,7 +23,7 @@ app.set("view engine", "ejs");
 // app.use(csrfProtection)
 app.use(session({
     secret: process.env.SECRET,
-    reserve: true,
+    resave: true,
     saveUninitialized: true,
     cookie:{secure: false}
 })
@@ -48,7 +48,6 @@ app.use("/slots", slotRoute);
 
 
 const loginRoute = require("./server/routes/loginRoutes");
-const { cookie } = require("express/lib/response");
 app.use("/", loginRoute)
 
 // const failedBooking = require("./server/routes/failedBookingRoutes");

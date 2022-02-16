@@ -5,4 +5,10 @@ exports.login = async (req, res) => {
   res.render("login/login");
 };
 
-exports.authlogin = async (req, res) => {};
+exports.authlogin = async (req, res) => {
+  res.redirect('/')
+};
+
+exports.profile = async (req, res) => {
+
+}
