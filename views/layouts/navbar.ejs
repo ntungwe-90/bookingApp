@@ -1,1 +1,29 @@
-  
+ <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+    </head>
+    <body>
+        
+        <nav>
+        <a href="/" class="logo">BEAUTYSPAR</a>
+        <ul class="nav-menu">
+            <li class="nav-item"><a href="/" >Home</a> </li>
+            <li class="nav-item"><a href="/Bookings" >Bookings</a> </li>
+            <li class="nav-item"><a href="/slots" >Slots</a> </li>
+            <li class="nav-item"><a href="/failedBookings" >FailedBookings</a> </li>
+            <% if(isAuthenticated) { %> 
+                <li class="nav-item"><a href="/logOut">Log Out</li></a>
+           <% } else {%>  
+            <li class="nav-item"><a href="/login">Login</a> </li>
+            <% } %>
+           
+        </ul>
+    </nav> 
+
+    
+    </body>
+    </html>

@@ -10,7 +10,15 @@ const schema = new mongoose.Schema({
     type: String,
   },
 
-  
+  active :{
+    type:Boolean,
+    default:true,
+  },
+
+  role:{
+    type:String,
+    default:'user'
+  }
 
 });
 

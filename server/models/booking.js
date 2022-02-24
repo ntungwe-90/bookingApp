@@ -2,12 +2,6 @@ const mongoose = require("mongoose");
 require("./mongooseConnection");
 
 const schema = new mongoose.Schema({
-  name: {
-    type: String,
-  },
-  phone: {
-    type: String,
-  },
   email: {
     type: String,
   },
@@ -21,6 +15,9 @@ type:Date
   slot: {
       type: mongoose.Types.ObjectId, ref: "Slot" 
   },
+  user: {
+    type: mongoose.Types.ObjectId, ref:"User"
+  }
 });
 
 module.exports = mongoose.model("Booking", schema);

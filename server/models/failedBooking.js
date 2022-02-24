@@ -2,15 +2,11 @@ const mongoose = require("mongoose");
 require("./mongooseConnection");
 
 const schema = new mongoose.Schema({
-  name: {
-    type: String,
+ 
+  user: {
+    type: mongoose.Types.ObjectId, ref:"User"
   },
-  phone: {
-    type: String,
-  },
-  email: {
-    type: String,
-  },
+ 
   booking_date:{
 type:Date
   },
@@ -20,4 +16,4 @@ type:Date
  
 });
 
-module.exports = mongoose.model("failedBooking", schema);
+module.exports = mongoose.model("FailedBooking", schema);

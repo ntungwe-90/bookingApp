@@ -1,49 +1,67 @@
-
 <div class="formcontainer">
-    <h1>Our Available Slots</h1>
-    
-    
-     <% if (typeof slots != 'underfined') { %>
-        <div class="slots">
-        <% slots.forEach((slot) => { %>
-            <h3>Date: <%= slot.slot_date %> </h3>
-            <h3>Quantity <%= slot.quantity -%> </h3>
+   <h1>Our Available Slots</h1>
 
-      <% }) %>
-       <% }%>
-    </div> 
-       <ul>
-        <li><a style="color: cadetblue;" href="/slots/add">Add</a></li>
-        <li><a style="color:crimson" href="/slots/delete">Delete</a></li>
-    </ul>
-    </div>
-    
-    <style>
-        body{
-     background-image: url("/img/m2.jpg");
-     background-repeat: no-repeat;
-    background-position: center center;
-    background-size: cover;
-    /* background-attachment:fixed; */
-    /* padding: 3.5rem  ; */
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
+
+   <% if (typeof slots !='underfined' ) { %>
+      <div class="slots">
+         <% slots.forEach((slot)=> { %>
+            <h3>Date: <%= slot.slot_date %>
+            </h3>
+            <h3>Quantity <%= slot.quantity -%>
+            </h3>
+
+            <% }) %>
+               <% }%>
+      </div>
+      <ul>
+         <li><a style="color: cadetblue;" href="/slots/add"><button class="button3">Add</button> </a></li>
+         <!-- <li><a style="color:crimson" href="/slots/delete">Delete</a></li> -->
+      </ul>
+</div>
+
+<style>
+   body {
+      background-image: url("/img/m2.jpg");
+      background-repeat: no-repeat;
+      background-position: center center;
+      background-size: cover;
+      /* background-attachment:fixed; */
+      /* padding: 3.5rem  ; */
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
    }
-         .formcontainer{
-            margin-top: 5rem;
-            margin-bottom: 13rem;
-            
-           }
-           .slots{
-              text-align: center;
-              gap: 10px;
-              margin-top: 20px;
-           }
-        
-           .formcontainer h1{
-            text-align: center;
-           }  
-        
-    </style>
+
+   .formcontainer {
+      margin-top: 5rem;
+      margin-bottom: 13rem;
+
+   }
+
+   .slots {
+      text-align: center;
+      gap: 10px;
+      margin-top: 20px;
+   }
+
+   .formcontainer h1 {
+      text-align: center;
+   }
+
+   .button3 {
+      border: none;
+      background-color: rgb(58, 4, 4);
+      text-align: center;
+      padding: 0.8em;
+      margin: 1em;
+      border-radius: 7px;
+      color: #fff;
+      width: 100px;
+      margin-left: 43em;
+   }
+
+   .button3:hover {
+      background-color: dodgerblue;
+   }
+</style>

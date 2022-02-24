@@ -3,6 +3,7 @@ const Booking = require("../models/Booking");
 const Slot = require("../models/Slot");
 const FailedBooking = require("../models/FailedBooking");
 const failedBooking = require("../models/FailedBooking");
+const user = require("../models/user");
 
 // booking routes
 exports.index = async (req, res) => {
@@ -18,7 +19,7 @@ exports.add = async (req, res) => {
 
 
 exports.save = async (req, res) => {
-  console.log(req.body)
+ 
   // checking for bookingdate
   const booking_date = req.body.booking_date;
   // checking the date
@@ -28,52 +29,45 @@ exports.save = async (req, res) => {
   // codition to check if date in slots and the input are thesame
   // we check if the slot is greater than the date filled on the form
   // also checks if the quantity we have is thesame to what is demmanded
-  const slots = await Slot.find({
+  const slot = await Slot.findOne({
     slot_date: {
       $gte: new Date(booking_date),
       $lt: next_Date,
+      
     },
+    quantity:{ $gte:0}
     });
-  console.log(slots)
-  if (slots.length > 0) {
-    let slot = slots[0];
+   console.log(slot)
+  if (slot) {
     const booking = new Booking({
-      name:req.body.name,
-      phone:req.body.phone,
+      user:user._id,
       email:req.body.email,
       services:req.body.services,
-      booking_date:req.body.booking_date
+      slot:slot._id
     })
+  
    await booking.save()
-// saving our failed booking 
-   const failedBooking = new FailedBooking({
-    name:req.body.name,
-    phone:req.body.phone,
-    email:req.body.email,
-    services:req.body.services,
-    booking_date:req.body.booking_date
-   })
+   console.log(booking)
+  
+   slot.quantity -=1
+   await slot.save()
 
-   if (slots !==null) {
-     if (slots.quantity > 0){
-       const booking = new Booking ({
-        name:req.body.name,
-        phone:req.body.phone,
-        email:req.body.email,
-        services:req.body.services,
-        booking_date:req.body.booking_date
-       })
-       await booking.save()
-     }
-   }
-
-   var decrement = slots.quantity -1
-   await Slot.updateOne({_id:slots._id})
-   res.render('bookings/index')
+   // condition to check if user name doesnt exist then displa
+   if (!user.name) {
+     res.render('booking/user')
+   }else{
+   res.redirect(302,'/bookings')
+   } 
 
    
     // console.log("booking date availabe");
   } else {
+    const failedBooking = new FailedBooking({
+      user:user._id,
+      email:req.body.email,
+      services:req.body.services,
+      booking:booking_date
+    })
     await failedBooking.save()
     // console.log("booking is not available");
 

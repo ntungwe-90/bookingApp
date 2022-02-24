@@ -5,6 +5,8 @@
     overflow-x: hidden;
     
   }
+
+  /* homepage styling */
   
   header {
     /* min-height: 100vh; */
@@ -28,7 +30,12 @@
     width: 100%;
     
     
+    
   }
+  /* nav:hover{
+    background-color: dodgerblue;
+    cursor: pointer;
+  } */
   
   nav img {
     height: 30px;
@@ -52,12 +59,17 @@
     
   }
   ul li a:hover {
-    color: #00ccff;
+    color: black;
+    /* color: #00ccff; */
   }
-  .logo{
-      color: #fff;
+  a{
+       color: #fff;
       font-family: verdana;
       list-style-type: none;
+      outline: none;
+      text-decoration: none;
+      list-style-type: none;
+      border: none
      ;
   }
 
@@ -73,11 +85,76 @@
     justify-content: center;
   }
 
+  .text1{
+    margin-top: 7em;
+    text-align: center;
+    color: white;
+    font-size: 20px;
+  }
+
+  .introduction{
+   margin-bottom: 5px;
+  }
+
   .intro{
       color: #fff;
       text-align: center;
-      margin-top: -25rem;
+      /* margin-top: 22rem; */
   }
+
+  #anim {
+    animation-name: anim;
+    animation-duration: 6s;
+    animation-fill-mode: forwards;
+    animation-iteration-count: infinite;
+ }
+    @keyframes anim {
+    0% {
+     color: #FA5A88;
+     top: 0px;
+     left: 20px;
+ }
+    15% {
+     color: #a71a9d;
+     left: 150px;
+ }  
+    30% {
+     color: #4d1f7e;
+ } 
+    50% {
+     color: rgb(231, 129, 13);
+     top: 250px;
+     left: 0px;
+ }
+    65% {
+    color: #9b2727;
+     left: -150px;
+ }
+    80% {
+     color: #f8f8f6;
+ } 
+    100% {
+     color: #FAA55A;
+     top: 0px;
+     left: 20px;
+ }  
+}
+
+
+
+  .landingPage{
+    display: flex;
+    justify-content: space-evenly;
+    gap: 10px;
+     align-items: center;
+     color: black;
+    /* margin-top: 45em; */
+  }
+
+   .landingPage img{
+    width: 200px; 
+    border-radius: 60px;
+  } 
 
   footer {
     background-color:#802323 ;
@@ -85,9 +162,14 @@
     font-weight: bold;
     padding: 30px;
   }
-  
-  
-  .footer-text {
-    padding-left: 1em;
-  }
-  
+
+ .footer-logos{
+   display: flex;
+   justify-content: space-between;
+   align-items: center;
+ }
+ /* footer:hover{
+  background-color: dodgerblue;
+ }  */
+ 
+   
