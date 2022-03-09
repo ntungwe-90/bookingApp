@@ -1,0 +1,42 @@
+<section style="background-image: url(/img/landing1.jpg);">
+<h1 class="container" >All Users</h1>
+<a href="/user/add" style="color: rgb(31, 32, 31); background-color:pink; width: 8%; margin-left: 10px; border-radius: 15px; text-align: center;">Add users</a>
+
+<div style="text-align: center; font-size: 20px;">
+<% users.forEach((user)=> { %>
+    <div class="card">
+
+
+        <p class="name">Name:<%- user.name -%>
+        </p>
+       
+        <p class="email">Phone_number:<%- user.phone_number -%>
+        </p>
+        <!-- <p class="servives">Password: <%- user.password -%> -->
+        <!-- </p> -->
+   
+   
+    <a href="/user/edit/<%= user._id %>"  style="color: dodgerblue;"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>
+    <a href="/user/delete/<%= user._id %>" style="color: tomato;"><i class="fa fa-trash" aria-hidden="true"></i></a><hr><hr>
+</div>
+    <%})%>
+
+</div>
+</section>
+<style>
+    .container{
+        margin-top: 100px;
+        text-align: center;
+        font-size: 50px;
+        color: #fff;
+       
+    }
+    .card:hover{
+        background-color: rgb(50, 54, 54);
+        opacity: 0.3;
+        color: #fff;
+        font-weight: bold;
+    }
+
+  
+</style>

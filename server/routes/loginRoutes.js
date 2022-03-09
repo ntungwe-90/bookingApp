@@ -1,27 +1,33 @@
-const router = require("express").Router();
+
 const passport = require("passport");
 const LocalStrategy = require("passport-local");
 const controller = require("../controllers/loginController");
-const User = require("../models/login");
-const flash = require('connect-flash');
+const User = require("../models/User")
+const bcrypt = require("bcrypt")
+const appUser = require('../controllers/userController');
+const router = require("express").Router();
 
-router.use(passport.initialize());
-router.use(passport.session());
-router.use(flash());
+
+
+//  router.use(userNav)
 
 // user verification
 passport.use(
   new LocalStrategy({ passReqToCallback:true},
     async function verify(req, username, password, cb) { 
-  //  const user = await User.findOne({ where: { username: username } });
-   const user = {
-      username: "pam",
-      password: "123"
-    };
+    const user = await User.findOne({ name: username });
+console.log(user)
+//  const  user ={
+//    username:"icy",
+//    password:"123"
+//  }
     if (user){
-    if (!user.active) {
-      //CHECKING FOR LOGIN INFORMATION
-      if (user. username === username && password === password  ) {
+      // return cb(null, user);
+    if (user.active) {
+    //   //CHECKING FOR LOGIN INFORMATION
+    const passwordVerify = await bcrypt.compare(password ,user.password)
+          // if (passwordVerify  ) {
+           if(password == user.password){
         return cb(null, user);
        }
     }else{
@@ -36,6 +42,9 @@ passport.use(
 );
 
 
+// hashed password method
+
+
 
 
 passport.serializeUser(function (user, cb) {
@@ -46,6 +55,9 @@ passport.deserializeUser(function (user, cb, ) {
   return cb(null, user);
 });
 
+router.use(passport.initialize());
+router.use(passport.session());
+
 // const whiteListed ="/"
 // set timer for mmultiple failed login
 const loginTracker = async (req, user) => {
@@ -54,97 +66,104 @@ const loginTracker = async (req, user) => {
     session.maxfailedAttempts = 3;
   }else{
     session.maxfailedAttempts -= 1;
-
     const maxfailedAttempts =  session.maxfailedAttempts;
     if(maxfailedAttempts <= 1){
       user.active = false;
-      await user
-      // .save()
+      await user.save();
     }
   }
  
-  console.log(req.session.maxfailedAttempts)
+  // console.log(req.session.maxfailedAttempts)
 
 }
 //whitelist our homepage
-const authLoggedIn = (req, res, next) => {
-  res.locals.loggedIn = false;
-  if (req.isAuthenticated()) {
-    res.locals.loggedIn = true;
-    next();
-  } else {
-    return res.redirect("/login");
-  }
-};
+
 
 
 const ensureAuthenticated = (req, res, next) => {
-  res.locals.isAuthenticated = false;
+  res.locals.isloggedIn = false;
   res.locals.whiteListed = false;
   if (req.path === "/") {
     res.locals.whiteListed = true;
     if (req.isAuthenticated()) {
-       res.locals.isAuthenticated = true;
+     
       res.locals.isloggedIn = true
     }
   } else {
     if (req.isAuthenticated()) {
-       res.locals.isAuthenticated = true;
+     
       res.locals.isloggedIn = true
     } else {
-    return  res.redirect("/login");
+    return  res.redirect("/user/login");
     }
   }
-  res.locals.user = req.user || {} ;
+
 // console.log(req.user.role)
 next();
  
 };
 
-router.get("/login", controller.login);
-router.post(
-  "/login",
-  passport.authenticate("local", { failureRedirect: "/login" }),
-  controller.authlogin
-);
-
 
 //middleware function for user navigation
-const userNavigation = (req, res, next) =>{
-  res.locals.user = req.user || {};
+const userNav = (req, res, next) =>{
+  let nav=[{href:'/',name :"home",active:"home"},{href:'/bookings/add',name:"Book Us"}]
   if(req.user) {
     if(req.user.role === "user"){
-      let userNav = {href:"/booking", name:"Booking"};
-      navigations.push()
+      let userNav = {href:'/bookings', name:"Booking",active:"booking"};
+      nav.push(userNav)
     }else{
-      let adminNav =[{href:"/booking", name:"Booking"},{href:"/slot"},{href:"/add_user", name:"Users"}]
-      navigations = navigations.concat(adminNav);
+      let adminNav =[{href:'/bookings', name:"Booking",active:"booking"},{href:'/slots',name:"slot",active:"slot"},{href:'/user', name:"Users",active:"user"}]
+      nav = nav.concat(adminNav);
     }
   }
   if(req.isAuthenticated()){
-    navigations.push({href:"/logout", name:"logout"});
+    nav.push( {href:'/user/profile', name:"profile" , active:"profile"},{href:"/logout", name:"logout" },
+    );
   }else{
-    navigations.push({href:"/login", name:"login"});
+    
+    nav.push({href:"/user/login", name:"login"},
+   
+    );
   }
-  res.locals.navigations = navigations
+  res.locals.navigations = nav
+  next()
 }
 
-//profile bypass login
-// user has to be loggedin to be able to view anypage in the system
-router.use(authLoggedIn);
-router.use(ensureAuthenticated);
-router.get("/profile", controller.profile);
-router.get("/logOut", controller.logOut);
+
+
+router.get("/user/login", controller.login);
+
 
 router.post(
-  "/login",
+  "/user/login",
   passport.authenticate("local", {
       failureFlash: true,
       successRedirect: "/",
-      failureRedirect: "/login"
+      failureRedirect: "/user/login"
 
   })
 );
+
+//profile bypass login
+// user has to be loggedin to be able to view anypage in the system
+// router.use(authLoggedIn);
+ router.use(ensureAuthenticated);
+router.use(userNav)
+
+router.get('/user/unauthorise', appUser.unauthorise)
+router.get("/user/profile", controller.profile);
+router.get("/logOut", controller.logOut);
+router.get("/user", appUser.index)
+router.get("/user/add", appUser.add)
+router.post("/user/add", appUser.save)
+router.get('/user/edit/:id', appUser.edit)
+router.post('/user/edit/:id', appUser.update)
+router.get('/user/delete/:id', appUser.delete)
+router.post('/user/delete/:id', appUser.cofirmdelete)
+router.get("/user/change-password", appUser.changePassword)
+router.post("/user/change-password", appUser.confirmPassword)
+
+
 module.exports = router;
 
 

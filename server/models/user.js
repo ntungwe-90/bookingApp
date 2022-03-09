@@ -1,18 +1,24 @@
 const mongoose = require("mongoose");
-require("./mongooseConnection");
-
 const schema = new mongoose.Schema({
   name: {
     type: String,
   },
-phone_number: {
-  type:String,
-},
- 
- password:{
-     type:String
- } 
- 
+  phone_number: {
+    type: String,
+  },
+  password: {
+    type: String,
+  },
+
+  active :{
+    type:Boolean,
+    default:true,
+  },
+  role:{
+    type:String,
+    default:"user"
+  },
+  
 });
 
-module.exports = mongoose.model("User", schema);
+module.exports = mongoose.model('User', schema);

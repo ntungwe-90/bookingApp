@@ -11,15 +11,16 @@
         <nav>
         <a href="/" class="logo">BEAUTYSPAR</a>
         <ul class="nav-menu">
-            <li class="nav-item"><a href="/" >Home</a> </li>
-            <li class="nav-item"><a href="/Bookings" >Bookings</a> </li>
-            <li class="nav-item"><a href="/slots" >Slots</a> </li>
-            <li class="nav-item"><a href="/failedBookings" >FailedBookings</a> </li>
-            <% if(isAuthenticated) { %> 
-                <li class="nav-item"><a href="/logOut">Log Out</li></a>
-           <% } else {%>  
-            <li class="nav-item"><a href="/login">Login</a> </li>
-            <% } %>
+           
+                <% if(typeof navigations != 'undefined'){ %> 
+                    <% navigations.forEach(nav =>{ %>
+                        <li class="nav-item <%= (typeof activeNav != 'undefined' && activeNav == nav.active)?'nav-active':'' %> ">
+                            <a href="<%= nav.href %> "><%= nav.name %> </a></li>
+                   <% }) %> 
+              <%  } %>  
+            <!-- <li class="nav-item"><a href="/failedBookings" >FailedBookings</a> </li> -->
+           
+          
            
         </ul>
     </nav> 

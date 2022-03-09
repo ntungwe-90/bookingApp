@@ -6,6 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/css/styles.css">
+    <title>    </title>
 
     
      <!-- Bootstrap CSS -->
@@ -19,10 +20,11 @@
 </head>
 
 <body>
-
+  
 <div>
-    <% if (typeof loggedIn !== 'undefined' && loggedIn) {%>
+    <% if((typeof loggedIn !== 'undefined' && loggedIn) ||(typeof whiteListed != 'undefined' && whiteListed)) {%>
         <%- include ("./navbar") %>
+      
             <% } %>
  
  
@@ -33,32 +35,41 @@
                 </div>
 
 </div>
-                <footer>
-                    <div class="footer-logos ">
-                        <div class="footer-text">
-                            <p> &copy; 2022 beautyspar Designed by Irene.com</p>
-                        </div>
-                            <div id="social-icons">
-                                <ul>
-                                  <i class="fa fa-twitter " style=" font-size:30px"></i>
-                                  <i class="fa fa-facebook " style=" font-size:30px"></i>
-                                   <i class="fa fa-instagram " style=" font-size:30px"></i>
-                                  <i class="fa fa-google-plus " style=" font-size:30px"></i>
-                                 
-                              </ul>
-                              </div>
-                        
-                    </div>
 
+    
+    
 
+<div class="footer" style="display: flex; justify-content: space-around; align-items: center; background-color: #802323; color: #fff;">
+        <div class="col-md-4 text-center">
+          <h5 style="color: rgb(224, 140, 14);">VISIT US IN KUMASI</h5>
+          <h5><i class="fa fa-phone" aria-hidden="true"></i> 05843216/0574432</h5>
+          <h5> <i class="fa fa-map-marker" aria-hidden="true"></i> Balgabia center,14 riverside drive. 4th floor,off riverside<br>
+               drive Hanover center, 14 riverside drive 6th floor off <br>
+               riverside drive</h5>
 
+             <h5> <i class="fa fa-envelope" aria-hidden="true"></i> Email:beaytyKnut@gmail.com</h5>
+            
+             
+             
+        </div>
+        <div class="col-md-4 text-center">
+          <h5 style="color: rgb(224, 140, 14);">VISIT US IN ACCRA</h5>
+          <h5><i class="fa fa-phone" aria-hidden="true"></i> 056784321/02265789</h5>
+          <h5><i class="fa fa-map-marker" aria-hidden="true"> one Airpot sqare, Airport city</i>
+              8th floor.</p>
+              <h5><i class="fa fa-envelope" aria-hidden="true"></i> Email:beaytySpar@gmail.com</h5>
+          
+        </div>
+        <div class="col-md-4 text-center">
+          <h5 style="color: rgb(224, 140, 14);">VISIT US IN AGOGO</h5>
+          <h5><i class="fa fa-phone" aria-hidden="true"></i> 09876543/0985432</h5>
+          <h5> </h5><i class="fa fa-map-marker" aria-hidden="true"> Sterling bank building</i>
+          <h5><i class="fa fa-envelope" aria-hidden="true"></i> Email:beaytyAgo@gmail.com</h5>
+          
+        </div>
+      </div>
 
-
-                </footer>
-                <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <!-- <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script> -->
 </body>
-
 </html>
+  
+  

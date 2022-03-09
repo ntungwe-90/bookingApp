@@ -1,0 +1,186 @@
+<div id="anim"  
+style="text-align: center; margin-top: 50px;" id="anim">
+
+  
+   <h1>WELCOME TO ICY'S BEAUTY SPAR</h1>
+<h4>Login To Book for our services</h4>
+</div>  
+<div class="loginContainer">
+  <div class="sms">
+  <%  if (message !== 'undefined') {%> 
+    <%= message %> 
+  <%  } %>
+</div>
+<form action="" style="max-width:500px;margin:auto" method="post">
+ 
+  <h2>LOGIN FORM</h2>
+  <div class="input-container">
+    <i class="fa fa-user icon"></i>
+
+    <input class="input-field" type="text" placeholder="Username" name="username">
+  </div>
+  <div class="input-container">
+    <i class="fa fa-key icon"></i>
+    <input class="input-field" type="password" placeholder="Password" name="password">
+  </div>
+  <div class="option_div">
+    <div class="check_box">
+      <input type="checkbox">
+      <span>Remember me</span>
+    </div>
+    <div class="forget_div">
+      <a href="#">Forgot password?</a>
+    </div>
+  </div>
+
+  <button type="submit" class="btn">Sign in</button>
+  <div id="icons">
+    <ul>
+      <i class="fa fa-twitter " style=" font-size:30px"></i>
+      <i class="fa fa-facebook " style=" font-size:30px"></i>
+       <i class="fa fa-instagram " style=" font-size:30px"></i>
+      <i class="fa fa-google-plus " style=" font-size:30px"></i>
+     
+  </ul>
+  </div>
+  <div class="sign_up">
+   <span class="question">Not a member?</span>  <a href="#">Signup now</a>
+  </div>
+</form>
+</div>
+<style> 
+ 
+    body 
+    {
+      font-family: Arial, Helvetica, sans-serif;
+      background-image: url("/img/flower.jpg");
+         background-repeat: no-repeat;
+        background-position: center center;
+        background-size: cover;
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    .sms{
+      color: red;
+     font-weight: bold;
+     font-size: 20px;
+    }
+
+    .user{
+      text-align: center;
+      font-size: larger;
+      background-color: grey;
+      color: grey;
+    }
+
+
+    .loginContainer{
+      box-shadow: 2px 3px 2px 3px rgb(15, 54, 54);
+      border: 3px solid #691818;
+      padding: 3em;
+      width: 500px;
+      min-height: 20vh;
+      border-radius: 3px;
+      margin: 30px;
+      margin: auto;
+      margin-top: 4em;
+      margin-bottom: 12em;
+
+    }
+
+    .loginContainer h2{
+      text-align: center;
+      color: #e9dddd;
+     margin-bottom: 20px;
+     font-weight: bolder;
+     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  }
+    
+    .input-container {
+      display: -ms-flexbox; 
+      display: flex;
+      width: 100%;
+      margin-bottom: 15px;
+      border-radius: 20px;
+      border: 5px solid #691818;
+    }
+    
+    .icon {
+      padding: 10px;
+      background:#691818 ;
+      color: white;
+      min-width: 50px;
+      text-align: center;
+    }
+    
+    .input-field {
+      width: 100%;
+      padding: 10px;
+      outline: none;
+     
+    }
+    
+    .input-field:focus {
+      border: 2px solid #691818;
+    }
+    
+    form .option_div{
+    margin-top: 5px;
+    display: flex;
+    justify-content: space-between;
+  }
+  .option_div .check_box{
+    display: flex;
+    align-items: center;
+    margin-bottom: 5px;
+    
+  }
+  .option_div span{
+    margin-left: 5px;
+    font-size: 16px;
+    color: #fff;
+  }
+  
+  .option_div .forget_div a{
+    font-size: 16px;
+    color: #be2edd;
+  }
+    /* Set a style for the submit button */
+    .btn {
+      background-color: #691818;
+      color: white;
+      padding: 15px 20px;
+      border: none;
+      cursor: pointer;
+      width: 100%;
+      opacity: 0.9;
+      border-radius: 20px;
+   
+    }
+    
+    .btn:hover {
+     opacity: 0.7;
+    }
+
+    #icons{
+      color: #fff;
+      text-align: center;
+      margin-left: 5em;
+    }
+
+    form .sign_up{
+    text-align: center;
+    margin-top: 15px;
+  }
+  .sign_up a{
+    color: #be2edd;
+  }
+
+  .question{
+    color: #fff;
+  }
+    </style> 
+    

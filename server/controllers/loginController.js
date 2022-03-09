@@ -1,10 +1,7 @@
-require("../models/mongooseConnection");
-const Login = require("../models/login");
-
 exports.login = async (req, res) => {
   const message = req.flash().message
   // res.locals.csrfToken = req.csrfToken()
-  res.render("login/login", {message});
+  res.render("user/login", {title:"users",  message});
 };
 
 exports.authlogin = async (req, res) => {
@@ -12,10 +9,10 @@ exports.authlogin = async (req, res) => {
 };
 
 exports.profile = async (req, res) => {
-res.render("login/profile")
+res.render("user/profile", {title:"profile"})
 }
 
 exports.logOut = async(req,res) => {
   req.logOut()
-  res.render("login/logOut")
+  res.render("user/logOut",{title:"logout"})
 }

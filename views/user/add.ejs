@@ -1,0 +1,132 @@
+<!-- <div class="container">
+<form method="post">
+    <input name="name" placeholder="name" type="text"><br>
+    <input name="phone_number" placeholder="phone number" type="text"><br>
+    <input name="password" placeholder="password" type="password"><br>
+
+    <button type="submit">Submit</button>
+</form>
+</div>
+
+<style>
+    .container{
+        margin-top: 100px;
+        text-align: center;
+    }
+</style> -->
+
+<div class="fcontainer">
+
+    <h1>add user </h1>
+    <form method="post">
+      <div>
+        <!-- <input type="hidden" name="_csrf" value=""><br> -->
+        <label for="">Name</label>
+        <input type="text" name="name" placeholder="name"> <br><br>
+      </div>
+      <div>
+        <!-- <input type="hidden" name="_csrf" value=""><br> -->
+        <label for="">Phone_number</label>
+        <input type="text" name="Phone_number" placeholder="phone_number"> <br><br>
+      </div>
+      <div>
+        <label for="">Password</label>
+        <input type="password" name="password" placeholder="password"><br><br>
+      </div>
+  
+      <button class="button3" type="Submit">Add</button>
+    </form>
+  </div>
+  <style>
+    body {
+      background-image: url("/img/flower.jpg");
+      background-repeat: no-repeat;
+      background-position: center center;
+      background-size: cover;
+      /* background-attachment:fixed; */
+      /* padding: 3.5rem  ; */
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+  
+    .fcontainer {
+      /* background-color: rgb(4, 47, 65); */
+      /* background-color: #0e1e2c; */
+      box-shadow: 2px 3px 2px 3px rgb(15, 54, 54);
+      border: 3px solid #691818;
+      padding: 2em;
+      width: 500px;
+      min-height: 50vh;
+      border-radius: 3px;
+      margin: 50px;
+      margin: auto;
+      margin-top: 10em;
+      margin-bottom: 7em;
+      color: #691818;
+      /* color: rgb(15, 54, 54); */
+    }
+  
+    .fcontainer h1 {
+      text-align: center;
+      color: rgb(58, 4, 4);
+    }
+  
+    .fcontainer .layout {
+      border-radius: 8px;
+      margin: auto;
+      color: #fff;
+  
+    }
+  
+    .layout p {
+      text-align: center;
+    }
+  
+    .fcontainer input {
+      width: 90%;
+      padding: 0.8rem;
+      border: 2px solid #691818;
+      /* color: white; */
+      margin: 0.6em;
+      border-radius: 5px;
+      /* border: none; */
+  
+  
+    }
+  
+    .fcontainer input:focus {
+      outline: none;
+    }
+  
+    textarea {
+      width: 90%;
+      min-height: 30vh;
+      padding: 0.8rem;
+      /* outline: none; */
+      /* color: white; */
+      margin: 0.6em;
+      border-radius: 5px;
+      border: 2px solid rgb(99, 13, 13);
+      /* border: none; */
+  
+  
+    }
+  
+    .button3 {
+      border: none;
+      background-color: rgb(58, 4, 4);
+      text-align: center;
+      padding: 0.8em;
+      margin: 1em;
+      border-radius: 7px;
+      color: #fff;
+      width: 100px;
+      margin-left: 13em;
+    }
+  
+    .button3:hover {
+      opacity: 0.6;
+    }
+  </style>

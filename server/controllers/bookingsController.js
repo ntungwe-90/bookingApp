@@ -1,60 +1,67 @@
 require("../models/mongooseConnection");
 const Booking = require("../models/Booking");
+const User = require("../models/User")
 const Slot = require("../models/Slot");
 const FailedBooking = require("../models/FailedBooking");
-const failedBooking = require("../models/FailedBooking");
-const user = require("../models/user");
+const bcrypt = require("bcrypt")
+const Util = require("./common")
+
 
 // booking routes
 exports.index = async (req, res) => {
-  const bookings = await Booking.find({});
-  // console.log(bookings)
-  res.render("bookings/index", { bookings });
+  const bookings = await Booking.find({}).populate('slot').populate( "user");
+  res.render("bookings/index", {title:"bookings", bookings,  activeNav:"booking" });
+ 
 };
 
 exports.add = async (req, res) => {
   const slot = await Slot.find({});
-  res.render("bookings/add", { slot });
+  res.render("bookings/add", {title:"", slot });
 };
 
 
 exports.save = async (req, res) => {
- 
+
+  let phone_number = req.body.phone_number
+  const user = await Util.getuser(phone_number)
   // checking for bookingdate
   const booking_date = req.body.booking_date;
   // checking the date
   const next_Date = new Date(booking_date);
   next_Date.setDate(next_Date.getDate() + 1);
+  console.log(req.body)
+  console.log(booking_date)
   console.log(next_Date)
   // codition to check if date in slots and the input are thesame
   // we check if the slot is greater than the date filled on the form
   // also checks if the quantity we have is thesame to what is demmanded
   const slot = await Slot.findOne({
+    
     slot_date: {
       $gte: new Date(booking_date),
       $lt: next_Date,
-      
     },
     quantity:{ $gte:0}
     });
-   console.log(slot)
+  //  console.log(slot)
   if (slot) {
     const booking = new Booking({
       user:user._id,
       email:req.body.email,
       services:req.body.services,
+      booking_date:req.body.booking_date,
       slot:slot._id
     })
   
    await booking.save()
-   console.log(booking)
+  
   
    slot.quantity -=1
    await slot.save()
 
    // condition to check if user name doesnt exist then displa
    if (!user.name) {
-     res.render('booking/user')
+     res.render("bookings/user",{title:"user",user})
    }else{
    res.redirect(302,'/bookings')
    } 
@@ -73,6 +80,7 @@ exports.save = async (req, res) => {
 
     
   }
+ 
 };
 
 exports.edit = async (req, res) => {
@@ -87,4 +95,14 @@ exports.comfirmdelete = async (req, res) => {
 };
 exports.delete = async (req, res) => {
   res.redirect("/bookings");
+};
+
+exports.updateUser = async(req,res)=>{
+  let phone_number = req.body.phone_number;
+  let hashedPassword = await bcrypt.hash(req.body.password, 10)
+  const user =await User.findOne({phone_number:phone_number})
+  user.name = req.body.name;
+  user.password = hashedPassword
+  await user.save()
+  res.redirect(302,"/bookings")
 };

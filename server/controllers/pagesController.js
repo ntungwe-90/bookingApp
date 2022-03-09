@@ -2,7 +2,7 @@ require('../models/mongooseConnection')
 
 
 exports.home = async(req, res) =>{
-    res.render("pages/home", {title:"home"})
+    res.render("pages/home", {title:"home", activeNav:"home"})
 }
 
 

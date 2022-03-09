@@ -4,17 +4,20 @@ const path = require("path");
 // const cookieParser = require("cookie-parser")
 // const csrf = require('csurf')
 const expressLayouts = require("express-ejs-layouts");
-
+const flash = require('connect-flash');
 const session = require("express-session");
 //  const cookieParser = require('cookie-parser')
 
 const app = express();
 
-//include boostrap
+// to parse json data from request object
+app.use(express.json())
 
 // using our express session and cookie on our slots
+ 
 app.use(express.static("public"));
 app.use(expressLayouts);
+app.use(flash());
 app.use(express.urlencoded({ extended: true }));
 app.set("layout", "./layouts/main");
 app.set("view engine", "ejs");
@@ -28,7 +31,7 @@ app.use(
     secret: process.env.SECRET,
     resave: true,
     saveUninitialized: true,
-    cookie: { secure: false },
+    cookie: {maxAge:30 * 60* 1000, secure: false },
   })
 );
 

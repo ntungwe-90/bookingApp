@@ -1,14 +1,135 @@
-<div>
-    <form method="post" action="">
-        <div>
-            <input type="text" name="name" placeholder="name"><br>
-        </div>
-        <div>
-            <input type="text" name="phone_number" placeholder="phone_number"><br>
-        </div>
+<div class="loginContainer">
+<form  style="max-width:500px;margin:auto" method="post" action="/bookings/update-user">
+ 
 
-        <div>
-            <input type="text" name="password" placeholder="password"><br>
-        </div>
-    </form>
+  <div class="input-container">
+    <i class="fa fa-phone icon"></i>
+
+    <input class="input-field" type="text" placeholder="Username" name="phone_number" value="<%= user.phone_number%>"> 
+  </div>
+  <div class="input-container">
+    <i class="fa fa-user icon"></i>
+    <input class="input-field" type="text" placeholder=" enter name" name="name" >
+  </div>
+  
+  <div class="input-container">
+    <i class="fa fa-key icon"></i>
+    <input class="input-field" type="text" placeholder=" enter password" name="password">
+  </div>
+  
+  
+
+  <button type="submit" class="btn">submit</button>
+ 
+</form>
 </div>
+
+<style>
+   .loginContainer{
+      box-shadow: 2px 3px 2px 3px rgb(15, 54, 54);
+      border: 3px solid #802323;
+      padding: 3em;
+      width: 500px;
+      min-height: 20vh;
+      /* border-radius: 3px; */
+      margin: 30px;
+      margin: auto;
+      margin-top: 4em;
+      margin-bottom: 12em;
+
+    }
+
+    .loginContainer h2{
+      text-align: center;
+      color: #e9dddd;
+     margin-bottom: 20px;
+     font-weight: bolder;
+     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  }
+    
+    .input-container {
+      display: -ms-flexbox; 
+      display: flex;
+      width: 100%;
+      margin-bottom: 15px;
+      /* border-radius: 20px; */
+      border: 5px solid #691818;
+    }
+    
+    .icon {
+      padding: 10px;
+      background:#691818 ;
+      color: white;
+      min-width: 50px;
+      text-align: center;
+    }
+    
+    .input-field {
+      width: 100%;
+      padding: 10px;
+      outline: none;
+     
+    }
+    
+    /* .input-field:focus {
+      border: 2px solid #691818;
+    } */
+    
+    form .option_div{
+    margin-top: 5px;
+    display: flex;
+    justify-content: space-between;
+  }
+  .option_div .check_box{
+    display: flex;
+    align-items: center;
+    margin-bottom: 5px;
+    
+  }
+  .option_div span{
+    margin-left: 5px;
+    font-size: 16px;
+    color: #fff;
+  }
+  
+  .option_div .forget_div a{
+    font-size: 16px;
+    color: #be2edd;
+  }
+    /* Set a style for the submit button */
+    .btn {
+      background-color: #802323;
+      color: white;
+      padding: 15px 20px;
+      border: none;
+      cursor: pointer;
+      width: 100%;
+      opacity: 0.9;
+      /* border-radius: 20px; */
+   
+    }
+    
+    .btn:hover {
+     opacity: 0.7;
+    }
+
+    #icons{
+      color: #fff;
+      text-align: center;
+      margin-left: 5em;
+    }
+
+    form .sign_up{
+    text-align: center;
+    margin-top: 15px;
+  }
+  .sign_up a{
+    color: #be2edd;
+  }
+
+  .question{
+    color: #fff;
+  }
+    </style> 
+    
+</style>
