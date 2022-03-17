@@ -29,9 +29,7 @@ exports.save = async (req, res) => {
   // checking the date
   const next_Date = new Date(booking_date);
   next_Date.setDate(next_Date.getDate() + 1);
-  console.log(req.body)
-  console.log(booking_date)
-  console.log(next_Date)
+  
   // codition to check if date in slots and the input are thesame
   // we check if the slot is greater than the date filled on the form
   // also checks if the quantity we have is thesame to what is demmanded
@@ -49,7 +47,7 @@ exports.save = async (req, res) => {
       user:user._id,
       email:req.body.email,
       services:req.body.services,
-      booking_date:req.body.booking_date,
+      
       slot:slot._id
     })
   
@@ -75,7 +73,9 @@ exports.save = async (req, res) => {
       services:req.body.services,
       booking:booking_date
     })
+    console.log("booking")
     await failedBooking.save()
+    res.render("/",{message: "slot not availale"})
     // console.log("booking is not available");
 
     

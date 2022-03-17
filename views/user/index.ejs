@@ -7,17 +7,18 @@
     <div class="card">
 
 
-        <p class="name">Name:<%- user.name -%>
+        <p class="name"><span style="color: darkslateblue;">Name</span>:<%- user.name -%>
         </p>
        
-        <p class="email">Phone_number:<%- user.phone_number -%>
+        <p class="email"><span  style="color: darkslateblue;">Phone_number</span>: <%- user.phone_number -%>
         </p>
         <!-- <p class="servives">Password: <%- user.password -%> -->
         <!-- </p> -->
    
    
     <a href="/user/edit/<%= user._id %>"  style="color: dodgerblue;"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>
-    <a href="/user/delete/<%= user._id %>" style="color: tomato;"><i class="fa fa-trash" aria-hidden="true"></i></a><hr><hr>
+    <a href="/user/delete/<%= user._id %>" style="color: tomato;"><i class="fa fa-trash" aria-hidden="true"></i></a>
+    <a href="/user/force-change/<%= user._id %>" style="color:green"><button class="button3">force change</button></a><hr><hr>
 </div>
     <%})%>
 
@@ -38,5 +39,19 @@
         font-weight: bold;
     }
 
-  
-</style>
+    .button3 {
+    border: none;
+    background-color: dodgerblue;
+    text-align: center;
+    padding: 0.8em;
+    margin: 1em;
+    border-radius: 7px;
+    color: #fff;
+    width: 100px;
+   
+  }
+
+  .button3:hover {
+  background-color: rgb(58, 4, 4)
+  }
+ 

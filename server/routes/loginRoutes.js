@@ -16,7 +16,7 @@ passport.use(
   new LocalStrategy({ passReqToCallback:true},
     async function verify(req, username, password, cb) { 
     const user = await User.findOne({ name: username });
-console.log(user)
+// console.log(user)
 //  const  user ={
 //    username:"icy",
 //    password:"123"
@@ -26,8 +26,8 @@ console.log(user)
     if (user.active) {
     //   //CHECKING FOR LOGIN INFORMATION
     const passwordVerify = await bcrypt.compare(password ,user.password)
-          // if (passwordVerify  ) {
-           if(password == user.password){
+          if (passwordVerify  ) {
+            // if(password == user.password){
         return cb(null, user);
        }
     }else{
@@ -112,7 +112,7 @@ const userNav = (req, res, next) =>{
       let userNav = {href:'/bookings', name:"Booking",active:"booking"};
       nav.push(userNav)
     }else{
-      let adminNav =[{href:'/bookings', name:"Booking",active:"booking"},{href:'/slots',name:"slot",active:"slot"},{href:'/user', name:"Users",active:"user"}]
+      let adminNav =[{href:'/bookings', name:"Booking",active:"booking"},{href:'/slots',name:"slot",active:"slot"},{href:'/user', name:"users",active:"user"}]
       nav = nav.concat(adminNav);
     }
   }
@@ -147,6 +147,11 @@ router.post(
 //profile bypass login
 // user has to be loggedin to be able to view anypage in the system
 // router.use(authLoggedIn);
+
+// forgot password routes whitelisted
+router.get("/user/forgot_password", appUser.forgot_password)
+router.post("/user/forgot_password", appUser.forgot_password_confirm)
+
  router.use(ensureAuthenticated);
 router.use(userNav)
 
@@ -162,6 +167,9 @@ router.get('/user/delete/:id', appUser.delete)
 router.post('/user/delete/:id', appUser.cofirmdelete)
 router.get("/user/change-password", appUser.changePassword)
 router.post("/user/change-password", appUser.confirmPassword)
+router.get("/user/force-change/:id", appUser.force_change)
+router.post("/user/force-change/:id", appUser.confirmforce_change)
+
 
 
 module.exports = router;

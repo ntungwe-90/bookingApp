@@ -1,15 +1,127 @@
-<div class="profile">
-<h2>My profile</h2>
+<div class="profile" style=" background-image: url(/img/landing4.jpg)">
+  <h2 id="anim">My profile</h2>
+  <div class="cardcontainer">
+    <!-- <h2>My profile</h2> -->
 
-<a href="/user/change-password" style="color: green;">change-password</a>
+    <img src="/img/bgirl2.jpg">
+    <div class="background">
+      <p>Hannah Smith</p>
+      <p>Software Developer</p>
+    </div>
+    <hr>
+    <hr>
+
+    <div class="about">
+      <p class="about"><i class="fa fa-user-o" aria-hidden="true" font-size="50px"></i> My Profile</p><br>
+      <hr>
+      <p class="about"><i class="fa fa-commenting-o" aria-hidden="true" font-size="50px"></i> messages</p><br>
+      <hr>
+      <p class="about"><i class="fa fa-map-marker" aria-hidden="true" font-size="50px"></i> Location</p><br>
+      <hr>
+      <p class="about"><i class="fa fa-share-alt" aria-hidden="true" font-size="50px"></i> Request</p><br>
+      <hr>
+      <p class="about"><i class="fa fa-cog" aria-hidden="true" font-size="50px"></i> Settings</p><br>
+      <hr>
+    </div>
+    <div class="btns">
+      <button class="button1" style="background-color: brown; color: #fff;"><a href="/">Logout</a></button><br><br>
+      <a href="/user/change-password"> <button class="button1">change-password</button></a>
+    </div>
+
+  </div>
+
+
 
 
 </div>
 
 <style>
-    .profile{
-        margin-top: 5em;
-        text-align: center;
-    }
-   
+  .profile {
+    margin-top: 5em;
+    text-align: center;
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+    /* background-attachment:fixed; */
+    /* padding: 3.5rem  ; */
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+
+  }
+
+  /* h2{
+        color: palevioletred;
+        font-weight: bolder;
+      } */
+  .cardcontainer {
+    /* height: 45em; */
+    width: 30em;
+    background-color: #fff;
+    border-radius: 5px;
+    margin-left: 27rem;
+    margin-top: 1em;
+    margin-bottom: 2em;
+  }
+
+  .cardcontainer img {
+    width: 150px;
+    border-radius: 60px;
+  }
+
+  .background {
+    margin-top: 5px;
+    margin-bottom: 15px;
+    font-weight: bold;
+
+  }
+
+  .about {
+    margin-top: 15px;
+  }
+
+  .about:hover {
+    background-color: pink;
+  }
+
+  .button1 {
+    background-color: #4CAF50;
+    /* Green */
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    -webkit-transition-duration: 0.4s;
+    /* Safari */
+    transition-duration: 0.4s;
+  }
+
+
+  .button1:hover {
+    box-shadow: 0 12px 16px 0 rgba(0, 0, 0, 0.24), 0 17px 50px 0 rgba(0, 0, 0, 0.19);
+  }
+
+  .btns {
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    gap: 10px;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    -webkit-transition-duration: 0.4s;
+    /* Safari */
+    transition-duration: 0.4s;
+
+  }
 </style>

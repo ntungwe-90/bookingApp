@@ -2,74 +2,74 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/css/styles.css">
-    <title>    </title>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/css/styles.css">
+  <title> </title>
 
-    
-     <!-- Bootstrap CSS -->
 
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"> -->
-    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css"/> -->
-   
+  <!-- Bootstrap CSS -->
+
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
 
 
 </head>
 
 <body>
-  
-<div>
-    <% if((typeof loggedIn !== 'undefined' && loggedIn) ||(typeof whiteListed != 'undefined' && whiteListed)) {%>
-        <%- include ("./navbar") %>
-      
-            <% } %>
- 
- 
-                <div>
 
-                    
-                    <%- body -%>
-                </div>
+  <div>
+    <% if((typeof loggedIn !=='undefined' && loggedIn) ||(typeof whiteListed !='undefined' && whiteListed)) {%>
+      <%- include ("./navbar") %>
 
-</div>
+        <% } %>
 
-    
-    
 
-<div class="footer" style="display: flex; justify-content: space-around; align-items: center; background-color: #802323; color: #fff;">
-        <div class="col-md-4 text-center">
-          <h5 style="color: rgb(224, 140, 14);">VISIT US IN KUMASI</h5>
-          <h5><i class="fa fa-phone" aria-hidden="true"></i> 05843216/0574432</h5>
-          <h5> <i class="fa fa-map-marker" aria-hidden="true"></i> Balgabia center,14 riverside drive. 4th floor,off riverside<br>
-               drive Hanover center, 14 riverside drive 6th floor off <br>
-               riverside drive</h5>
+          <div>
 
-             <h5> <i class="fa fa-envelope" aria-hidden="true"></i> Email:beaytyKnut@gmail.com</h5>
-            
-             
-             
-        </div>
-        <div class="col-md-4 text-center">
-          <h5 style="color: rgb(224, 140, 14);">VISIT US IN ACCRA</h5>
-          <h5><i class="fa fa-phone" aria-hidden="true"></i> 056784321/02265789</h5>
-          <h5><i class="fa fa-map-marker" aria-hidden="true"> one Airpot sqare, Airport city</i>
-              8th floor.</p>
-              <h5><i class="fa fa-envelope" aria-hidden="true"></i> Email:beaytySpar@gmail.com</h5>
-          
-        </div>
-        <div class="col-md-4 text-center">
-          <h5 style="color: rgb(224, 140, 14);">VISIT US IN AGOGO</h5>
-          <h5><i class="fa fa-phone" aria-hidden="true"></i> 09876543/0985432</h5>
-          <h5> </h5><i class="fa fa-map-marker" aria-hidden="true"> Sterling bank building</i>
-          <h5><i class="fa fa-envelope" aria-hidden="true"></i> Email:beaytyAgo@gmail.com</h5>
-          
-        </div>
-      </div>
+
+            <%- body -%>
+
+          </div>
+
+  </div>
+
+
+
+
+  <div class="footer"
+    style="display: flex; justify-content: space-around; align-items: center; background-color: #802323; color: #fff;">
+    <div class="col-md-4 text-center">
+      <h5 style="color: rgb(224, 140, 14);">VISIT US IN KUMASI</h5>
+      <h5><i class="fa fa-phone" aria-hidden="true"></i> 05843216/0574432</h5>
+      <h5> <i class="fa fa-map-marker" aria-hidden="true"></i> Balgabia center,14 riverside drive. 4th floor,off
+        riverside<br>
+        drive Hanover center, 14 riverside drive 6th floor off <br>
+        riverside drive</h5>
+
+      <h5> <i class="fa fa-envelope" aria-hidden="true"></i> Email:beaytyKnut@gmail.com</h5>
+
+
+
+    </div>
+    <div class="col-md-4 text-center">
+      <h5 style="color: rgb(224, 140, 14);">VISIT US IN ACCRA</h5>
+      <h5><i class="fa fa-phone" aria-hidden="true"></i> 056784321/02265789</h5>
+      <h5><i class="fa fa-map-marker" aria-hidden="true"> one Airpot sqare, Airport city</i>
+        8th floor.</p>
+        <h5><i class="fa fa-envelope" aria-hidden="true"></i> Email:beaytySpar@gmail.com</h5>
+
+    </div>
+    <div class="col-md-4 text-center">
+      <h5 style="color: rgb(224, 140, 14);">VISIT US IN AGOGO</h5>
+      <h5><i class="fa fa-phone" aria-hidden="true"></i> 09876543/0985432</h5>
+      <h5> </h5><i class="fa fa-map-marker" aria-hidden="true"> Sterling bank building</i>
+      <h5><i class="fa fa-envelope" aria-hidden="true"></i> Email:beaytyAgo@gmail.com</h5>
+
+    </div>
+  </div>
 
 </body>
+
 </html>
-  
-  
