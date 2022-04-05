@@ -68,7 +68,7 @@ const loginTracker = async (req, user) => {
     session.maxfailedAttempts -= 1;
     const maxfailedAttempts =  session.maxfailedAttempts;
     if(maxfailedAttempts <= 1){
-      user.active = false;
+      user = false;
       await user.save();
     }
   }
